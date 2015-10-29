@@ -5,11 +5,13 @@ class User < ActiveRecord::Base
   set :friend_id_set
 
   def calc_friend_id_set
-    friend_id_set.add(relations.pluck(:friend_id))
+    friend_id_set.add(relations.pluck(:friend_id)) if friend_id_set.empty?
   end
 
   def fast_mutual_friend_ids(friend)
-    User.first.friend_id_set.inter(User.last.friend_id_set)
+    calc_friend_id_set
+    friend.calc_friend_id_set
+    friend_id_set.inter(friend.friend_id_set)
   end
 
   def slow_mutual_friend_ids(friend)
