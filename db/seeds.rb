@@ -21,7 +21,7 @@ user_ids = (first_user_id..last_user_id).to_a
 user_ids.each_slice(100) do |sliced|
   relations = []
   sliced.each do |user_id|
-    user_ids.sample(100).each do |friend_id|
+    user_ids.sample(500).each do |friend_id|
       if user_id != friend_id
         relations << Relation.new(user_id: user_id, friend_id: friend_id)
         relations << Relation.new(user_id: friend_id, friend_id: user_id)
