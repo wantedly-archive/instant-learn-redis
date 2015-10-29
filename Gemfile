@@ -34,6 +34,7 @@ gem 'hiredis'
 gem 'redis'
 gem 'redis-rails'
 gem 'redis-objects'
+gem 'redis-namespace'
 gem 'sidekiq'
 
 gem 'pry-rails'
