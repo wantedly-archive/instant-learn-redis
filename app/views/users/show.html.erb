@@ -16,7 +16,7 @@
 
 <p>
   <strong>Mutual Friends:</strong>
-  <% current_user.mutual_friends.eah do |friend| %>
+  <% current_user.mutual_friends(@user).each do |friend| %>
     <%= link_to friend.name, user_path(friend) %>
   <% end %>
 </p>
