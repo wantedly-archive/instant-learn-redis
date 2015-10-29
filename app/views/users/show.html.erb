@@ -15,7 +15,7 @@
 </p>
 
 <p>
-  <strong>Mutual Friends:</strong>
+  <strong>Mutual Friends (<%= current_user.mutual_friends(@user).size %>):</strong>
   <% current_user.mutual_friends(@user).each do |friend| %>
     <%= link_to friend.name, user_path(friend) %>
   <% end %>
