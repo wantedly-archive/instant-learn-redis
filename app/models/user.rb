@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
   end
 
   def mutual_friends(friend)
-    User.where(id: slow_mutual_friend_ids(friend))
+    User.where(id: fast_mutual_friend_ids(friend))
   end
 end
